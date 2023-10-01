@@ -19,7 +19,7 @@ Recon scripts
     ```
 
 ## Usage
-Rbot creates a directory inside your $HOME/reconbot for each target you run. On the first run for a target, it asks you to create a inscope and outscope files.
+Rbot creates a directory inside your $HOME/data for each target you run. On the first run for a target, it asks you to create a inscope and outscope files.
 
 Run rbot. 
 ```
