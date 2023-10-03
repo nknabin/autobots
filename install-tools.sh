@@ -4,7 +4,7 @@ echo "running setup-env.."
 source ./setup-env.sh
 
 # install go if doesn't exist
-if [[ -z "$GO_HOME" ]]; then
+if [[ -z "$GOPATH" ]]; then
 	echo "go not found.."
 
 	PS3="Install go now : "
@@ -21,9 +21,9 @@ if [[ -z "$GO_HOME" ]]; then
 			sudo rm -rf /usr/local/go
 			sudo tar -C /usr/local -xzf go1.21.1.linux-amd64.tar.gz
 
-			echo "export GO_ROOT=/usr/local/go" >> ~/.bashrc
-			echo "export GO_PATH=$HOME/go" >> ~/.bashrc
-			echo "export PATH=$GO_PATH/bin:$GO_ROOT/bin:$PATH" >> ~/.bashrc
+			echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+			echo "export GOPATH=$HOME/go" >> ~/.bashrc
+			echo "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH" >> ~/.bashrc
 
 			rm -f go1.20.1.linux-amd64.tar.gz
 			sleep 5
