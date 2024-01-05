@@ -1,0 +1,8 @@
+rbotDirPath="$(dirname -- "${BASH_SOURCE[0]}")"            # relative
+rbotDirPath="$(cd -- "$MY_PATH" && pwd)"    # absolutized and normalized
+if [[ -z "$rbotDirPath" ]] ; then
+  # error; for some reason, the path is not accessible
+  # to the script (e.g. permissions re-evaled after suid)
+  exit 1  # fail
+fi
+alias rbot=$rbotDirPath/rbot.sh

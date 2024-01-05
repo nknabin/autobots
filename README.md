@@ -1,20 +1,20 @@
-# reconbot
+# autobot
 Recon scripts
 
 ## Install
 1. Clone the repo inside your $HOME/opt.
     ```
-    $ git clone https://github.com/nabin01/reconbot.git $HOME/opt/reconbot
+    $ git clone https://github.com/nabin01/autobot.git $HOME/opt/autobot
     ```
 
 2. Source utils.sh in your bashrc.
     ```
-    $ source $HOME/opt/reconbot/utils.sh
+    $ source $HOME/opt/autobot/utils.sh
     ```
 
 3. Create a soft link to rbot.sh on a directory in your PATH
     ```
-    $ ln -s /home/username/opt/reconbot/rbot.sh /home/username/bin/rbot
+    $ ln -s /home/username/opt/autobot/rbot.sh /home/username/bin/rbot
     $ rbot -h
     ```
 

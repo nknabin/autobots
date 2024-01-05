@@ -3,8 +3,13 @@
 echo "running setup-env.."
 source ./setup-env.sh
 
+# create directories
+if [ ! -d ~/tools ]; then
+	mkdir ~/tools
+fi
+
 # install go if doesn't exist
-if [[ -z "$GO_HOME" ]]; then
+if [[ -z "$GOPATH" ]]; then
 	echo "go not found.."
 
 	PS3="Install go now : "
@@ -65,17 +70,24 @@ sudo $package_manager_install jq nmap tor whois
 # dependencies
 sudo apt install -y libpcap-dev
 
+# git clones
+cd ~/tools
+git clone https://github.com/danielmiessler/SecLists.git
+git clone https://github.com/jobertabma/relative-url-extractor
+
 # utils
+go install github.com/tomnomnom/anew@latest
 go install github.com/tomnomnom/unfurl@latest
 go install github.com/tomnomnom/httprobe@latest
 go install github.com/ffuf/ffuf/v2@latest
+go install github.com/projectdiscovery/notify/cmd/notify@latest
 
 # recon
 go install software.sslmate.com/src/certspotter/cmd/certspotter@latest
 go install github.com/owasp-amass/amass/v4/...@master
 go install github.com/projectdiscovery/httpx/cmd/httpx@latest
 go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
-go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 
 go install github.com/rverton/webanalyze/cmd/webanalyze@latest
 if [ ! -f ~/technologies.json ]; then
